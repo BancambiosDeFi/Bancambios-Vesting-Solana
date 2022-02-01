@@ -119,12 +119,12 @@ const SeedSale: React.FC<SeedSaleProps> = ({ name }) => {
                       transaction.feePayer = newWalletKey;
 
                       window.solana
-                          .signAndSendTransaction(transaction)
+                          .signAndSendTransaction(transaction, )
                           .then((sign: { signature: string }) => {
                               console.log("sign === ", sign);
 
                               connection
-                                  .confirmTransaction(sign.signature)
+                                  .confirmTransaction(sign.signature, 'confirmed')
                                   .then((signature) => {
                                       console.log("signature", signature);
                                       setIsClaimed(true);
